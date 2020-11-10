@@ -1,6 +1,11 @@
+#ifndef GAME_WINDOW
+#define GAME_WINDOW
+
 #include <stdbool.h>
+#include "ogl_context.h"
 #include <GLFW/glfw3.h>
 #include "../libs/error.h"
+#include "../types.h"
 
 /* GameWindow struct containing necessary information about a game window. 
  * The changes bitField contains which values were changed. */
@@ -10,6 +15,7 @@ typedef struct GameWindow {
 	float	screenSizeY;
 	bool	mouseCaptured;
 	bool	fullScreen;
+	Color	backgroundColor;
 	char	changesBitField; 
 	GLFWwindow*	openGlWindow;
 } GameWindow;
@@ -26,6 +32,8 @@ int	gameWindow_getScreenSize	(GameWindow*	window, int	*x, int	*y);
 
 int	gameWindow_setFullScreen	(GameWindow*	window, bool	fullScreen);
 
+int	gameWindow_setBackgroundColor	(GameWindow*	window, Color	color);
+
 int	gameWindow_checkWindow	(GameWindow*	window);
 
 int	gameWindow_bind		(GameWindow*	window);
@@ -33,3 +41,5 @@ int	gameWindow_bind		(GameWindow*	window);
 int	gameWindow_remove	(GameWindow*	window);
 
 int	gameWindow_update	(GameWindow*	window); 
+
+#endif

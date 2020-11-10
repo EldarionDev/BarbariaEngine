@@ -1,3 +1,6 @@
+#ifndef ERROR
+#define ERROR
+
 /* Status Code to be returned by functions.
  * 0 = No Error
  * <1 = Heap/Stack/Pointer error
@@ -17,3 +20,5 @@ enum StatusCode {
 	UnexpectedZeroValue	=	8,
 	UnexpectedSmallValue	=	9
 };
+
+#endif
